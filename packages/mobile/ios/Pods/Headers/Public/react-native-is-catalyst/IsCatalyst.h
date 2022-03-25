@@ -1,0 +1,1 @@
+../../../../../../../node_modules/react-native-is-catalyst/ios/IsCatalyst.h

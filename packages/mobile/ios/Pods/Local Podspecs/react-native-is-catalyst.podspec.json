@@ -1,0 +1,25 @@
+{
+  "name": "react-native-is-catalyst",
+  "version": "1.0.0",
+  "summary": "Tells if the react native app is running on Catalyst",
+  "description": "react-native-is-catalyst",
+  "homepage": "https://github.com/charpeni/react-native-is-catalyst",
+  "license": "MIT",
+  "authors": {
+    "Nicolas Charpentier": "nicolas.charpentier079@gmail.com"
+  },
+  "platforms": {
+    "ios": "10.0"
+  },
+  "source": {
+    "git": "https://github.com/charpeni/react-native-is-catalyst.git",
+    "tag": "1.0.0"
+  },
+  "source_files": "ios/**/*.{h,c,m,swift}",
+  "requires_arc": true,
+  "dependencies": {
+    "React": [
+
+    ]
+  }
+}

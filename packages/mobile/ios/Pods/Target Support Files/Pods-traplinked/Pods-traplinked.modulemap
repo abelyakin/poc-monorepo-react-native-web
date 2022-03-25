@@ -1,0 +1,6 @@
+module Pods_traplinked {
+  umbrella header "Pods-traplinked-umbrella.h"
+
+  export *
+  module * { export * }
+}

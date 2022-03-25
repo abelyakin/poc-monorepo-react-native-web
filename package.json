@@ -1,0 +1,59 @@
+{
+  "name": "traplinked",
+  "version": "0.102.0",
+  "private": true,
+  "repository": "",
+  "workspaces": {
+    "packages": [
+      "packages/*"
+    ],
+    "nohoist": []
+  },
+  "scripts": {
+    "clean": "yarn workspaces run clean",
+    "dev": "yarn workspace @traplinked/desktop compile && concurrently --kill-others \"yarn workspace @traplinked/desktop compile -w\" \"yarn workspace @traplinked/web start\" \"yarn workspace @traplinked/mobile start\" \"wait-on http://localhost:3000 && yarn workspace @traplinked/desktop start\"",
+    "dev:desktop": "cross-env BROWSER=none concurrently \"yarn dev:web\" \"yarn workspace @traplinked/desktop compile -w\" \"wait-on http://localhost:3000 && yarn workspace @traplinked/desktop start\"",
+    "dev:landing": "yarn workspace @traplinked/web compile && concurrently --kill-others \"yarn workspace @traplinked/web compile -w\" \"cd ./landing && yarn start && cd -\"",
+    "dev:mobile": "yarn workspace @traplinked/mobile compile && concurrently --kill-others \"yarn workspace @traplinked/mobile compile -w\" \"yarn workspace @traplinked/mobile start\"",
+    "dev:web": "yarn workspace @traplinked/web compile && concurrently --kill-others \"yarn workspace @traplinked/web compile -w\" \"yarn workspace @traplinked/web start\"",
+    "format": "yarn workspaces run format",
+    "lint": "yarn workspaces run lint",
+    "patch-package": "patch-package",
+    "prepare": "yarn patch-package",
+    "studio": "yarn workspace @traplinked/mobile studio",
+    "xcode": "yarn workspace @traplinked/mobile xcode"
+  },
+  "dependencies": {
+    "react-native": "0.64.2"
+  },
+  "devDependencies": {
+    "@primer/octicons-v2": "canary",
+    "@typescript-eslint/eslint-plugin": "4.28.0",
+    "@typescript-eslint/parser": "4.28.0",
+    "concurrently": "5.3.0",
+    "cross-env": "7.0.3",
+    "eslint": "7.29.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-prettier": "3.4.0",
+    "eslint-plugin-react": "7.24.0",
+    "lint-staged": "10.5.3",
+    "now": "21.0.1",
+    "patch-package": "6.2.2",
+    "postinstall-prepare": "1.0.1",
+    "prettier": "2.3.1",
+    "shx": "0.3.3",
+    "typescript": "4.3.4"
+  },
+  "resolutions": {
+    "@types/react": "17.0.0",
+    "react-refresh": "0.9.0"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix --quiet"
+    ],
+    "*.{js,jsx,ts,tsx,json}": [
+      "prettier --write"
+    ]
+  }
+}
